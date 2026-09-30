@@ -8,6 +8,12 @@ This portfolio project draws on warehouse and transportation systems experience.
 
 ![FlowCheck workbench](docs/preview.png)
 
+## Public demo
+
+[Try FlowCheck in your browser](https://sfskhalsa101.github.io/flowcheck/) — no account or installation needed. The public version performs comparisons in JavaScript and stores source records and history in your browser’s local storage. Files are not uploaded to a backend. Use one tab at a time; this demo does not synchronize across devices or users. Browser storage limits apply.
+
+The Python/SQLite implementation below remains the backend reference. Shared fixtures and randomized cases test comparison parity between both versions. Rebuild the public version with `python3 build_demo.py`; GitHub Pages serves `main` → `/docs`.
+
 ## Run in one command
 
 Requires Python 3.11 or newer. No dependencies, API keys, or package installation.
@@ -66,6 +72,7 @@ W001,SHP-2401,PART-A,120
 
 ```sh
 python3 -m unittest discover -s tests -v
+node --test tests/browser.test.cjs
 ```
 
 The suite covers seeded discrepancies, corrected reconciliation, invalid data, composite keys, source preservation, concurrent retries, API responses, CSV export, and rejected cross-origin writes. GitHub Actions runs the suite on Python 3.11–3.13.
